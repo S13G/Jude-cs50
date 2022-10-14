@@ -1,0 +1,71 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>History</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'dashboard/history.css' %}">
+{% endblock %}
+
+{% block main %}
+
+    {% if messages %}
+        {% for message in messages %}
+        <div class="ptag">
+            <p class="{{ message.tags }} show django-message message-bg">{{ message }}</p>
+        </div>
+        {% endfor %}
+    {% endif %}
+    <div class="table">
+        <table class="">
+            <div class="">
+                <tr>
+                    <th>Symbols</th>
+                    <th>Type</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Transacted</th>
+                </tr>
+            </div>
+            <tbody>
+                {% if transactions %}
+                {% for transaction in transactions %}
+                    <div class="">
+                        <tr class="">
+                        <td class="">{{ transaction.stock_symbol }}</td>
+                        {% if transaction.is_sell %}
+                            <td style="color: rgb(9, 112, 9); font-weight:600;">Sell</td>
+                        {% else %}
+                            <td style="color: #1896df; font-weight:600;">Buy</td>
+                        {% endif %}
+                        <td class="">{{ transaction.shares }}</td>
+                        <td class="">${{ transaction.stock_price }}</td>
+                        <td class="">{{ transaction.time }}</td>
+                        </tr>
+                    </div>
+                {% endfor %}
+                {% else %}
+                {% endif %}
+              </tbody>
+        </table>
+    </div>
+    {% if num >= 1 %}
+    <form class="" method="POST" action="{% url 'dashboard:history' %}">
+        {% csrf_token %}
+        <input type="hidden" id="choice" name="choice" value="no">
+        <button style="margin-top: 0;">Clear History</button>
+    </form>
+    <div class="after">
+        <div class="nothing bdr" onclick="removeChoice()"></div>
+        <div class="choice">
+            <p>Do your really want to clear all?</p>
+            <p class="button"><button value="yes" id="yes">Yes</button> <button value="no" id="no">No</button></p>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'dashboard/history.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Portfolio</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'dashboard/portfolio.css' %}">
+{% endblock %}
+
+{% block main %}
+
+    {% if messages %}
+        {% for message in messages %}
+        <div class="ptag">
+            <p class="{{ message.tags }} show django-message message-bg">{{ message }}</p>
+        </div>
+        {% endfor %}
+    {% endif %}
+    <div class="table">
+        <table class="">
+            <div class="">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </div>
+            <tbody>
+                {% if transactions %}
+                    {% for transaction in transactions %}
+                        <div class="">
+                            <tr>
+                            <td class="">{{ transaction.stock_symbol }}</td>
+                            <td class="">{{ transaction.stock_name }}</td>
+                            {% if transaction.is_sell %}
+                                <td style="color: rgb(9, 112, 9); font-weight:600;">Sell</td>
+                            {% else %}
+                                <td style="color: #1896df; font-weight:600;">Buy</td>
+                            {% endif %}
+                            <td class="">{{ transaction.shares }}</td>
+                            <td class="">${{ transaction.stock_price }}</td>
+                            <td class="">${{ transaction.total }}</td>
+                            </tr>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                {% endif %}
+                <tr class="collate">
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="other">CASH</td>
+                  <td class="">${{ balance }}</td>
+                </tr>
+                <tr class="collate">
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="other">TOTAL</td>
+                  <td class="">${{ total }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

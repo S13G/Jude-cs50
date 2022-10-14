@@ -1,0 +1,80 @@
+
+td{
+    text-align: center;
+    padding: 8px;
+}
+th{
+    text-align: center;
+    padding: 8px;
+}
+tr{
+    color: #166fa3;
+}
+tr th{
+    color:#1896df;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+  }
+  .after{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* z-index: 5; */
+    margin-top: -50vh;
+    margin-left: -50vw;
+    backdrop-filter:blur(3px);
+    visibility: hidden;
+    transition: 0.5s;
+    background: rgba(0, 0, 0, 0.25);
+}
+.form .nothing{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+.after .choice{
+    width: 250px;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transform: scale(0.1); 
+    transition: transform 0.4s;
+    background: #fff;
+}
+.choice  .button{
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.choice .button button:hover{
+    background: blue;
+}
+.choice .button button{
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: red;
+    color: #fff;
+}
+
+@media screen and (min-width:728px) {
+    td{
+        text-align: center;
+        padding: 12px;
+    }
+    .table{
+        margin-top: 40px;
+    }
+    .choice  .button{
+        margin-top: 40px;
+    }
+}
+@media screen and (min-width: 998px) {
+  }

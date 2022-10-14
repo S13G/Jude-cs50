@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Login</title>
+{% endblock %}
+
+{% block main %}
+    <h1>Login Here</h1>
+    <form novalidate action="{% url 'accounts:login' %}" method="POST">
+        {% csrf_token %}
+        {% if messages %}
+        {% for message in messages %}
+          <p class="{{ message.tags }} show django-message">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+      <input type="text" placeholder="Username" id="username" name="username" />
+      <p class="error-name error">username cannot be empty</p>
+      <input type="password" placeholder="Password" id="password" name="password"/>
+      <p class="error-password error"></p>
+      <button>Login</button>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'accounts/login.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+    <link rel="stylesheet" href="../../static/style.css" />
+    <link rel="stylesheet" href="../../static/dashboard/portfolio.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://finance.cs50.net/static/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+  </head>
+  <body>
+    <header class="">
+      <a href="#" id="logo">
+        <div class="logo">
+          <h1>C</h1>
+          <h1 id="dollar">$</h1>
+          <h1>5</h1>
+          <h1>0</h1>
+          <p class="">Finance</p>
+        </div>
+      </a>
+      <div class="desktop desktop-nav dashboard">
+        <div class="a-links">
+            <a href="#">Quotes</a>
+            <a href="#">Buy</a>
+            <a href="#">Sell</a>
+            <a href="#">History</a>
+        </div>
+        <div class="div-btn">
+            <a href="#"><button>Logout</button></a>
+        </div>
+      </div>
+      <div class="mobile mobile-nav">
+        <i class="fa-solid fa-bars icon"></i>
+      </div>
+    </header>
+    <main class="">
+      <div class="mobile-drop-down mobile m-dashboard">
+        <a href="#">Quotes</a>
+        <a href="#">Buy</a>
+        <a href="#">Sell</a>
+        <a href="#">History</a>
+        <a href="#}"><button>Logout</button></a>
+      </div>
+
+      <div class="ptag">
+        <p class="show django-message message-bg">messages choke o</p>
+        </div>
+
+      <div class="table">
+        <table class="">
+            <div class="">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </div>
+            <tbody>
+                        <div class="">
+                            <tr>
+                            <td class="">MSFT</td>
+                            <td class="">Microsoft Incorporation 1999</td>
+        
+                                <td style="color: #1896df; font-weight:600;">Buy</td>
+                            <td class="">10</td>
+                            <td class="">$10</td>
+                            <td class="">$256</td>
+                            </tr>
+                        </div>
+                <tr class="collate">
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="other">CASH</td>
+                  <td class="">$8780</td>
+                </tr>
+                <tr class="collate">
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="other">TOTAL</td>
+                  <td class="">$10000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <form class="">
+        <input type="hidden" name="choice" value="no">
+        <button style="margin-top: 0;">Clear History</button>
+    </form>
+    <div class="after hide">
+        <div class="choice">
+            <p>Do your really want to clear all?</p>
+            <p class="button"><button style="color: red;" value="yes" id="yes">Yes</button> <button style="color: blue;" value="no" id="no">No</button></p>
+        </div>
+    </div>
+    </main>
+    <footer class="">
+      <p>Data Provided by <a href="https://finance.yahoo.com/">yahoo finance</a></p>
+    </footer>
+    <script src="../../static/script.js"></script>
+    <script src="../../static/dashboard/history.js"></script>
+    
+  </body>
+  <p class="spinner"><i class="fa-solid fa-spinner fa-5x" id="spinner"></i></p>
+</html>
+
+

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<div class="main">
+  {% if messages %}
+    {% for message in messages %}
+      <h1>{{ message }}</h1>
+    {% endfor %}
+  {% else %}
+  <h1>Welcome User ...</h1>
+  {% endif %}
+    <div class="svg">
+      <img src="{% static 'assets/Trust.svg' %}" />
+    </div>
+    <div class="mid-links">
+      <a href="{% url 'accounts:login' %}">Login</a>
+      <a href="{% url 'accounts:register' %}">Register</a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

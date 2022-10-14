@@ -1,0 +1,1 @@
+web: gunicorn cs50finance.wsgi

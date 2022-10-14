@@ -1,0 +1,35 @@
+.quoted{
+    margin-top: 48px;
+    padding: 16px;
+    box-shadow: 1px 2px 3px 3px #f0d2df;
+}
+footer{
+    margin-top: 48px;
+}
+.quoted h5, h3{
+    margin-top: 16px;
+    padding: 4px;
+}
+.row h3{
+    margin-top: 32px;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quoted a button:hover{
+    background: blue;
+}
+.quoted a button{
+    height: 40px;
+    width: 120px;
+    color: white;
+    background: #dc3545;
+    outline: 0;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}

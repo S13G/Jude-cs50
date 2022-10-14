@@ -1,0 +1,54 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Quotes</title>
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'dashboard/quote.css' %}">
+{% endblock %}
+
+{% block main %}
+
+    {% if messages %}
+        {% for message in messages %} 
+        <div class="ptag">
+            <p class="{{ message.tags }} show django-message message-bg">{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="ptag">
+            <p class="show django-message message-bg">Check Out a Stock Now!</p>
+        </div>
+    {% endif %}
+
+    <form novalidate action="{% url 'dashboard:quotes' %}" method="POST">
+        {% csrf_token %}
+      <input type="text" placeholder="Symbol e.g TSLA,AAPL" id="symbol" name="symbol" />
+      <p class="error-symbol error">Symbol cannot be empty</p>
+      <button type="submit">Quote</button>
+    </form>
+
+    <div class="quoted">
+        {% if stock_exists %}
+            <div class="row">
+                <img src="{{ stock.logo_url }}" alt="" class="">
+            </div>
+            <h3>Name: {{ stock.name }}</h3>
+            <h5>Symbol: {{ stock.symbol }}</h5>
+            <h5>Current Price: ${{ stock.price }}</h5>
+            <h5>Sector: {{ stock.sector }}</h5>
+            <h5>Industry: {{ stock.industry }}</h5>
+            <h5>Country: {{ stock.country }}</h5>
+            <h5>Website: <a href="{{ stock.website }}">{{ stock.website }}</a></h5>
+            <a href="{% url 'dashboard:buy' %}" class=""><button data-stock="{{ stock.symbol }}" onclick="storeName()">Buy {{ stock.symbol }}</button></a>
+        {% else %}
+            <h5>No Quotes Yet</h5>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'dashboard/quote.js' %}"></script>
+{% endblock %}

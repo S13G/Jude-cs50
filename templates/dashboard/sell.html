@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Sell</title>
+{% endblock %}
+
+{% block main %}
+
+    {% if messages %}
+        {% for message in messages %}
+        <div class="ptag">
+            <p class="{{ message.tags }} show django-message message-bg">{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="ptag">
+            <p class="show django-message message-bg">Sell a Stock Now!</p>
+        </div>
+    {% endif %}
+
+    <form novalidate action="{% url 'dashboard:sell' %}" method="POST">
+        {% csrf_token %}
+        <div class="mainselection">
+            <select name="symbol" id="symbol" class="">
+                <option value="" class="">Select a Stock</option>
+                {% if stocks %}
+                {% for stock in stocks %}
+                    <option value="{{ stock.symbol }}" class="">{{ stock.symbol }}</option>
+                {% endfor %}
+                {% endif %}                          
+            </select>
+        </div>
+      <p class="error-symbol error">Symbol cannot be empty</p>
+      <input type="number" placeholder="Shares" id="shares" name="shares" min="1">
+      <p class="error-shares error">Shares cannot be empty</p>
+      <button type="submit">Sell</button>
+    </form>
+    
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'dashboard/sell.js' %}"></script>
+{% endblock %}

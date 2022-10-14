@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Register</title>
+{% endblock %}
+
+{% block main %}
+    <h1>Register Here</h1>
+    <form novalidate action="{% url 'accounts:register' %}" method="POST">
+        {% csrf_token %}
+        {% if messages %}
+        {% for message in messages %}
+          <p class="{{ message.tags }} show django-message">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+      <input type="text" placeholder="Username" id="username" name="username" />
+      <p class="error-name error">username cannot be empty</p>
+      <!-- I want to give users the option of selecting their account size -->
+      <input type="password" placeholder="Password" id="password" name="password" />
+      <p class="error-password error"></p>
+      <input type="password" placeholder="Password (again)" id="password2" name="password2" />
+      <p class="error-password error"></p>
+      <div class="mainselection bdr" style="margin-top: 16px;">
+        <select name="accountSize" id="accountSize" class="">
+            <option value="" class="">Select account type in $</option>
+            <option value="10000" class="">10000</option>
+            <option value="100000" class="">100000</option>                             
+            <option value="1000000" class="">1000000</option>                             
+        </select>
+      </div>
+      <p class="error-acct error">account cannot be empty</p>
+      <button type="submit">Register</button>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'accounts/register.js' %}"></script>
+{% endblock %}

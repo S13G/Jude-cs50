@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>Home</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://finance.cs50.net/static/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="">
+      <a href="{% url 'accounts:home' %}" id="logo">
+        <div class="logo">
+          <h1>C</h1>
+          <h1 id="dollar">$</h1>
+          <h1>5</h1>
+          <h1>0</h1>
+          <p class="">Finance</p>
+        </div>
+      </a>
+      <div class="desktop desktop-nav">
+        <a href="{% url 'accounts:register' %}">Register</a>
+        <a href="{% url 'accounts:login' %}">Login</a>
+      </div>
+      <div class="mobile mobile-nav">
+        <i class="fa-solid fa-bars icon"></i>
+      </div>
+    </header>
+    <main class="">
+      <div class="mobile-drop-down mobile">
+        <a href="{% url 'accounts:register' %}">Register</a>
+        <a href="{% url 'accounts:login' %}">Login</a>
+      </div>
+      {% block main %}
+      {% endblock %}
+    </main>
+    <footer class="">
+      <p>Data Provided by <a href="https://finance.yahoo.com/">yahoo finance</a></p>
+    </footer>
+    <script src="{% static 'script.js' %}"></script>
+    {% block scripts %}
+    {% endblock %}
+  </body>
+  <p class="spinner"><i class="fa-solid fa-spinner fa-5x" id="spinner"></i></p>
+</html>
